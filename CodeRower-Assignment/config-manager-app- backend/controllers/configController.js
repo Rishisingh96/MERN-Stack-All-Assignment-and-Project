@@ -20,7 +20,7 @@ exports.updateRemark = async (req, res) =>{
         const config = await Configuration.findOneAndUpdate(
             {configId: req.params.id},
             { remark: req.body.remark},
-            { new:true }
+            { returnDocument:'after'}
         );
 
         if(!config){
