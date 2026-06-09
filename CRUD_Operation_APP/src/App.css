@@ -23,6 +23,7 @@ button {
   cursor: pointer;
   border: 0;
   background-color: hsl(160, 80%, 48%);
+  color: hsl(0, 3%, 6%);
   box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -38,6 +39,7 @@ button {
 button:hover {
   background-color: hsl(160, 80%, 48%);
   color: hsl(0, 0%, 100%);
+
   box-shadow: rgb(9, 172, 115) 0px 7px 19px 0px;
 }
 

@@ -5,6 +5,7 @@ import {Form} from "./Form";
 
 export const Post = () => {
   const [data, setData] = useState([]);
+  const [updateDataApi, setUpdateDataApi] = useState({});
 
   const getPostDate = async () => {
     const res = await getPost();
@@ -33,14 +34,17 @@ export const Post = () => {
     }
   };
 
+  // function to update Post
+  const handleUpdatePost = (curElem) => setUpdateDataApi(curElem);
+
   return (
     <>
       <section className="section-form">
         <Form
           data={data}
           setData={setData}
-          // updateDataApi={updateDataApi}
-          // setUpdateDataApi={setUpdateDataApi}
+          updateDataApi={updateDataApi} // Pass the updateDataApi state to the Form component
+          setUpdateDataApi={setUpdateDataApi} // Pass the setUpdateDataApi function to the Form component to allow it to update the state when needed
         />
         </section>
     <section className="section-post">
