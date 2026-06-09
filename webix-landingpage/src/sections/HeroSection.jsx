@@ -154,9 +154,9 @@ const TECH = [
 ];
 
 const STATS = [
-  { num: "150+", label: "Projects Delivered" },
+  { num: "60+", label: "Projects Delivered" },
   { num: "98%", label: "Client Satisfaction" },
-  { num: "40+", label: "Expert Engineers" },
+  { num: "10+", label: "Expert Engineers" },
 ];
 
 /* ─── Main Component ─── */
@@ -169,9 +169,34 @@ const HeroSection = () => {
   const techRef = useRef(null);
   const cardsRef = useRef(null);
   const titleRef = useRef(null);
+  const [animatedStats, setAnimatedStats] = useState([0, 0, 0]);
 
   useEffect(() => {
     injectStyles();
+    
+    // Counter animation for stats
+    const targetValues = STATS.map(stat => {
+      const num = parseInt(stat.num.replace(/\D/g, ''));
+      return num;
+    });
+    
+    targetValues.forEach((target, index) => {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        setAnimatedStats(prev => {
+          const newStats = [...prev];
+          newStats[index] = Math.floor(current);
+          return newStats;
+        });
+      }, 30);
+    });
+    
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     if (badgeRef.current) {
@@ -210,12 +235,7 @@ const HeroSection = () => {
     }
 
     if (statsRef.current) {
-      tl.fromTo(
-        statsRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.3",
-      );
+      gsap.set(statsRef.current, { opacity: 1, y: 0 });
     }
 
     if (techRef.current) {
@@ -320,7 +340,7 @@ const HeroSection = () => {
               {STATS.map((stat, i) => (
                 <div key={i}>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    {stat.num}
+                    {animatedStats[i]}{stat.num.includes('+') ? '+' : ''}{stat.num.includes('%') ? '%' : ''}
                   </div>
                   <div className="text-[11px] sm:text-sm text-gray-500 mt-1">{stat.label}</div>
                 </div>

@@ -18,9 +18,9 @@ const SEO = ({
     ? title
     : `${title} | ${siteName}`;
 
-  const defaultImage = "https://webixinfotech.com/og-image.jpg";
+  const defaultImage = "https://webixinfotech.vercel.app/og-image.jpg";
 
-  const url = canonical || "https://webixinfotech.com";
+  const url = canonical || "https://webixinfotech.vercel.app/";
 
   return (
     <Helmet>
@@ -60,7 +60,7 @@ const SEO = ({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Webix Infotech",
-            url: "https://webixinfotech.com",
+            url: "https://webixinfotech.vercel.app/",
           }),
         }}
       />

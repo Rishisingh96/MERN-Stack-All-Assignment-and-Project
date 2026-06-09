@@ -19,7 +19,7 @@ const platforms = [
     title: "Webix Main Website",
     description:
       "Official digital presence showcasing our services, innovations, and brand identity.",
-    url: "https://webixinfotech.com",
+    url: "https://webixinfotech.vercel.app/",
   },
   {
     icon: FiGrid,

@@ -5,8 +5,6 @@ import HeroSection from "./sections/HeroSection";
 import FooterSection from "./component/common/Footer";
 import Navbar from "./component/common/Navbar";
 import Privacy from "./sections/Privacy";
-import Cookies from "./sections/Cookies";
-import ConsentBanner from "./component/common/ConsentBanner";
 import SEO from "./component/common/SEO";
 
 const PlateformSection = lazy(() => import("./sections/PlateformSection"));
@@ -26,15 +24,15 @@ function App() {
                 title="Webix Infotech | Software & Web Development Company in Indore"
                 description="Webix Infotech provides web development, mobile app development, custom software solutions, AI solutions, and digital marketing services in Indore, India."
                 keywords="Web Development Company, Software Development Company, Mobile App Development, AI Solutions, Digital Marketing, Indore, India"
-                canonical="https://webixinfotech.com/"
+                canonical="https://webixinfotech.vercel.app/"
                 
                 structuredData={[
                   {
                     "@context": "https://schema.org",
                     "@type": "Organization",
                     name: "Webix Infotech",
-                    url: "https://webixinfotech.com",
-                    logo: "https://webixinfotech.com/logo.png",
+                    url: "https://webixinfotech.vercel.app/",
+                    logo: "https://webixinfotech.vercel.app/logo.png",
                     telephone: "+91-9926820304",
                     address: {
                       "@type": "PostalAddress",
@@ -54,7 +52,7 @@ function App() {
                     "@context": "https://schema.org",
                     "@type": "LocalBusiness",
                     name: "Webix Infotech",
-                    image: "https://webixinfotech.com/logo.png",
+                    image: "https://webixinfotech.vercel.app/logo.png",
                     telephone: "+91-9926820304",
                     address: {
                       "@type": "PostalAddress",
@@ -98,13 +96,13 @@ function App() {
                     "@context": "https://schema.org",
                     "@type": "WebSite",
                     name: "Webix Infotech",
-                    url: "https://webixinfotech.com",
+                    url: "https://webixinfotech.vercel.app/",
                     description: "Webix Infotech provides web development, mobile app development, custom software solutions, AI solutions, and digital marketing services in Indore, India.",
                     potentialAction: {
                       "@type": "SearchAction",
                       target: {
                         "@type": "EntryPoint",
-                        urlTemplate: "https://webixinfotech.com/search?q={search_term_string}"
+                        urlTemplate: "https://webixinfotech.vercel.app/search?q={search_term_string}"
                       },
                       "query-input": "required name=search_term_string"
                     }
@@ -270,7 +268,6 @@ function App() {
                 <FAQSection />
               </Suspense>
               <FooterSection />
-              <ConsentBanner />
             </>
           } />
           <Route path="/privacy-policy" element={
@@ -279,21 +276,9 @@ function App() {
                 title="Privacy Policy"
                 description="Read our privacy policy to understand how Webix Infotech collects, uses, and protects your personal information. Learn about your rights and our data practices."
                 keywords="Privacy Policy, Data Protection, Personal Information, Webix Infotech, GDPR Compliance"
-                canonical="https://webixinfotech.com/privacy-policy"
+                canonical="https://webixinfotech.vercel.app/privacy-policy"
               />
               <Privacy />
-              <FooterSection />
-            </>
-          } />
-          <Route path="/cookie-policy" element={
-            <>
-              <SEO 
-                title="Cookie Policy"
-                description="Learn about Webix Infotech's cookie policy and how we use cookies to enhance your browsing experience. Understand your cookie preferences and settings."
-                keywords="Cookie Policy, Cookies, Browser Cookies, Tracking, Webix Infotech, Cookie Consent"
-                canonical="https://webixinfotech.com/cookie-policy"
-              />
-              <Cookies />
               <FooterSection />
             </>
           } />

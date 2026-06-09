@@ -136,21 +136,6 @@ const Privacy = () => {
             </ul>
           </section>
 
-          {/* 4. Cookies & Tracking Technologies */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <Eye className="w-6 h-6 text-blue-600" />
-              4. Cookies & Tracking Technologies
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              We deploy standard cookie structures and comparable browser state trackers to preserve user session 
-              details, capture navigational metrics, and enhance system response times. These text snippets are safely 
-              managed through your native operating terminal or browser application. You retain full system authority to 
-              restrict or deny cookie allocations through localized system configurations. Please note, choosing to isolate or 
-              drop cookies might alter the layout structure or degrade certain interactive functionalities embedded inside our 
-              technical landscape.
-            </p>
-          </section>
 
           {/* 5. Data Security Architecture */}
           <section>
