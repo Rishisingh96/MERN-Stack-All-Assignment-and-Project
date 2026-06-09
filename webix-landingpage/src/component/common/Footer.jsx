@@ -180,11 +180,11 @@ const Footer = () => {
         "
                 >
                   Aditya Gateway MR 10,
-                  <br />
+                  
                   Vijay Nagar,
-                  <br />
+                
                   Indore - 452010,
-                  <br />
+                  
                   Madhya Pradesh, India
                 </address>
               </li>
