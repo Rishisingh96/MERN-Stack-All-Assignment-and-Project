@@ -17,6 +17,9 @@ import {
 } from "react-icons/si";
 import AnimatedBg from "../component/common/Animatedbg1";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /* ─── Required Custom CSS (Minimal) ─── */
 const injectStyles = () => {
@@ -108,26 +111,6 @@ const injectStyles = () => {
 };
 
 
-/* ─── GSAP Loader ─── */
-const loadGSAP = () =>
-  new Promise((resolve) => {
-    if (window.gsap) return resolve(window.gsap);
-
-    const script1 = document.createElement("script");
-    script1.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js";
-    script1.onload = () => {
-      const script2 = document.createElement("script");
-      script2.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js";
-      script2.onload = () => {
-        window.gsap.registerPlugin(window.ScrollTrigger);
-        resolve(window.gsap);
-      };
-      document.head.appendChild(script2);
-    };
-    document.head.appendChild(script1);
-  });
 
 /* ─── Data ─── */
 const FEATURES = [
@@ -189,79 +172,77 @@ const HeroSection = () => {
 
   useEffect(() => {
     injectStyles();
-    loadGSAP().then((gsap) => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      if (badgeRef.current) {
-        tl.fromTo(
-          badgeRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6 },
-        );
-      }
+    if (badgeRef.current) {
+      tl.fromTo(
+        badgeRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+      );
+    }
 
-      if (headlineRef.current) {
-        tl.fromTo(
-          headlineRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.3",
-        );
-      }
+    if (headlineRef.current) {
+      tl.fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.9 },
+        "-=0.3",
+      );
+    }
 
-      if (subRef.current) {
-        tl.fromTo(
-          subRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          "-=0.5",
-        );
-      }
+    if (subRef.current) {
+      tl.fromTo(
+        subRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.7 },
+        "-=0.5",
+      );
+    }
 
-      if (btnsRef.current) {
-        tl.fromTo(
-          btnsRef.current,
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4",
-        );
-      }
+    if (btnsRef.current) {
+      tl.fromTo(
+        btnsRef.current,
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4",
+      );
+    }
 
-      if (statsRef.current) {
-        tl.fromTo(
-          statsRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.3",
-        );
-      }
+    if (statsRef.current) {
+      tl.fromTo(
+        statsRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.3",
+      );
+    }
 
-      if (techRef.current) {
-        tl.fromTo(
-          techRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.2",
-        );
-      }
+    if (techRef.current) {
+      tl.fromTo(
+        techRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5 },
+        "-=0.2",
+      );
+    }
 
-      // Staggered cards animation
-      if (cardsRef.current && cardsRef.current.children) {
-        gsap.fromTo(
-          cardsRef.current.children,
-          { opacity: 0, x: 40, scale: 0.95 },
-          {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            stagger: 0.1,
-            duration: 0.7,
-            ease: "back.out(1.2)",
-            delay: 0.4,
-          },
-        );
-      }
-    });
+    // Staggered cards animation
+    if (cardsRef.current && cardsRef.current.children) {
+      gsap.fromTo(
+        cardsRef.current.children,
+        { opacity: 0, x: 40, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          stagger: 0.1,
+          duration: 0.7,
+          ease: "back.out(1.2)",
+          delay: 0.4,
+        },
+      );
+    }
   }, []);
 
   const scrollToSection = (id) => {

@@ -1,19 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import HeroSection from "./sections/HeroSection";
-import PlateformSection from "./sections/PlateformSection";
-import ServicesSection from "./sections/ServicesSection";
-import FAQSection from "./sections/FAQSection";
 import FooterSection from "./component/common/Footer";
 import Navbar from "./component/common/Navbar";
-import ProjectEcosystem from "./sections/ProjectEcosystem";
 import Privacy from "./sections/Privacy";
 import Cookies from "./sections/Cookies";
 import ConsentBanner from "./component/common/ConsentBanner";
 import SEO from "./component/common/SEO";
 
+const PlateformSection = lazy(() => import("./sections/PlateformSection"));
+const ServicesSection = lazy(() => import("./sections/ServicesSection"));
+const FAQSection = lazy(() => import("./sections/FAQSection"));
+const ProjectEcosystem = lazy(() => import("./sections/ProjectEcosystem"));
+
 function App() {  
   return (
+
     <HelmetProvider>
       <Router>
         <Routes>
@@ -254,10 +257,18 @@ function App() {
               />
               <Navbar />
               <HeroSection />
-              <PlateformSection />
-              <ServicesSection />
-              <ProjectEcosystem />
-              <FAQSection />
+              <Suspense fallback={<div className="min-h-[400px]" />}>
+                <PlateformSection />
+              </Suspense>
+              <Suspense fallback={<div className="min-h-[400px]" />}>
+                <ServicesSection />
+              </Suspense>
+              <Suspense fallback={<div className="min-h-[400px]" />}>
+                <ProjectEcosystem />
+              </Suspense>
+              <Suspense fallback={<div className="min-h-[400px]" />}>
+                <FAQSection />
+              </Suspense>
               <FooterSection />
               <ConsentBanner />
             </>

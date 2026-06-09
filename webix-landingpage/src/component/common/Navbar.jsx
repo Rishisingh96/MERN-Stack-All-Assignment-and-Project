@@ -41,11 +41,11 @@ const Navbar = () => {
   "
     >
       {" "}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mr-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:mr-12 ">
         {" "}
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}{" "}
-          <Link to="/" className="flex items-center group -ml-38">
+          <Link to="/" className="flex items-center group md:-ml-38 ">
             <img
               src={logo}
               alt="Webix Infotech Logo - Software Development Company"
@@ -74,11 +74,21 @@ const Navbar = () => {
               Get Started
             </a>
           </div>
-          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
+            className="
+    md:hidden
+    rounded-xl
+    border border-white/10
+    bg-white/5
+    p-2.5
+    backdrop-blur-md
+    transition-all
+    duration-300
+    hover:bg-white/10
+    hover:scale-105
+  "
           >
             {isOpen ? (
               <X className="w-6 h-6 text-white" />
@@ -87,15 +97,30 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-
-
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
-            }`}
+          className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${
+            isOpen
+              ? "max-h-[500px] opacity-100 mt-3 translate-y-0"
+              : "max-h-0 opacity-0 -translate-y-2"
+          }`}
         >
-          <div className="py-4 sm:py-6 space-y-2 sm:space-y-3 bg-black/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 mx-2 sm:mx-0">
+          <div
+            className="
+      py-4
+      space-y-1
+      mx-2
+      overflow-hidden
+      rounded-3xl
+      border border-white/10
+      bg-gradient-to-br
+      from-slate-900/95
+      via-slate-950/95
+      to-black/95
+      backdrop-blur-2xl
+      shadow-[0_20px_80px_rgba(0,0,0,0.65)]
+    "
+          >
             {navLinks.map((link) => (
               <button
                 key={link.name}
@@ -103,17 +128,51 @@ const Navbar = () => {
                   scrollToSection(link.href);
                   setIsOpen(false);
                 }}
-                className="block w-full text-left px-4 sm:px-6 py-2.5 sm:py-3 text-white/90 hover:text-orange-400 hover:bg-white/5 rounded-lg font-medium text-sm sm:text-base transition-all duration-200"
+                className="
+          block
+          w-full
+          text-left
+          px-5
+          py-4
+          text-white/90
+          hover:text-blue-400
+          hover:bg-white/5
+          rounded-2xl
+          font-medium
+          text-sm
+          transition-all
+          duration-300
+          hover:translate-x-1
+        "
               >
                 {link.name}
               </button>
             ))}
 
-            <div className="px-4 sm:px-6 pt-3 sm:pt-4">
-              <a 
-              href="https://webixinfotech.com/contact"
-              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] transition-all duration-300">
-                Get Started
+            <div className="px-4 pt-3">
+              <a
+                href="https://webixinfotech.com/contact"
+                className="
+          flex
+          items-center
+          justify-center
+          w-full
+          bg-gradient-to-r
+          from-blue-500
+          via-blue-600
+          to-indigo-600
+          text-white
+          py-3.5
+          rounded-2xl
+          font-semibold
+          text-sm
+          shadow-[0_10px_30px_rgba(59,130,246,0.4)]
+          hover:scale-[1.02]
+          transition-all
+          duration-300
+        "
+              >
+                Get Started →
               </a>
             </div>
           </div>

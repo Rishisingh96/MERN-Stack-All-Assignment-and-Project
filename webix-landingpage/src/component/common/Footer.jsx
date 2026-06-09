@@ -111,27 +111,84 @@ const Footer = () => {
           </div>
 
           {/* Get in Touch */}
-          <div className="-ml-4">
-            <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <FiMail size={20} className="text-orange-500 mt-1 flex-shrink-0" />
-                <a href="mailto:officialwebixinfotech@gmail.com" className="text-gray-400 hover:text-orange-500 transition-colors">
+          <div className="w-full">
+            <h4 className="text-lg font-semibold mb-5 text-white">
+              Get in Touch
+            </h4>
+
+            <ul className="space-y-5">
+
+              {/* Email */}
+              <li className="flex items-start gap-3 min-w-0">
+                <FiMail
+                  size={20}
+                  className="text-blue-500 mt-1 flex-shrink-0"
+                />
+
+                <a
+                  href="mailto:officialwebixinfotech@gmail.com"
+                  className="
+          text-gray-400
+          hover:text-blue-500
+          transition-colors
+          break-all
+          text-sm
+          sm:text-base
+        "
+                >
                   officialwebixinfotech@gmail.com
                 </a>
               </li>
-              <li className="flex items-start gap-3">
-                <FiPhone size={20} className="text-orange-500 mt-1 flex-shrink-0" />
-                <a href="tel:+919926820304" className="text-gray-400 hover:text-orange-500 transition-colors">
+
+              {/* Phone */}
+              <li className="flex items-start gap-3 min-w-0">
+                <FiPhone
+                  size={20}
+                  className="text-blue-500 mt-1 flex-shrink-0"
+                />
+
+                <a
+                  href="tel:+919926820304"
+                  className="
+          text-gray-400
+          hover:text-blue-500
+          transition-colors
+          text-sm
+          sm:text-base
+        "
+                >
                   +91 9926820304
                 </a>
               </li>
-              <li className="flex items-start gap-3">
-                <FiMapPin size={20} className="text-orange-500 mt-1 flex-shrink-0" />
-                <span className="text-gray-400">
-                  Aditya Gateway MR 10, Vijay Nagar, Indore - 452010, Madhya Pradesh, India
-                </span>
+
+              {/* Address */}
+              <li className="flex items-start gap-3 min-w-0">
+                <FiMapPin
+                  size={20}
+                  className="text-blue-500 mt-1 flex-shrink-0"
+                />
+
+                <address
+                  className="
+          not-italic
+          text-gray-400
+          leading-relaxed
+          text-sm
+          sm:text-base
+          break-words
+          overflow-hidden
+        "
+                >
+                  Aditya Gateway MR 10,
+                  <br />
+                  Vijay Nagar,
+                  <br />
+                  Indore - 452010,
+                  <br />
+                  Madhya Pradesh, India
+                </address>
               </li>
+
             </ul>
           </div>
 
@@ -143,6 +200,7 @@ const Footer = () => {
                 title="map"
                 src="https://maps.google.com/maps?q=Aditya+Gateway+MR+10+Vijay+Nagar+Indore&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-[200px]"
+                loading="lazy"
               />
             </div>
           </div>

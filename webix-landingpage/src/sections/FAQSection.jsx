@@ -41,32 +41,13 @@ const FAQSection = () => {
   const contentRefs = useRef([]);
 
   useEffect(() => {
-    const loadGSAP = () =>
-      new Promise((resolve) => {
-        if (window.gsap) return resolve(window.gsap);
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-        script.onload = () => {
-          const scrollScript = document.createElement('script');
-          scrollScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-          scrollScript.onload = () => {
-            window.gsap.registerPlugin(window.ScrollTrigger);
-            resolve(window.gsap);
-          };
-          document.head.appendChild(scrollScript);
-        };
-        document.head.appendChild(script);
-      });
-
-    loadGSAP().then((gsap) => {
-      if (sectionRef.current) {
-        gsap.fromTo(
-          sectionRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
-        );
-      }
-    });
+    if (sectionRef.current) {
+      gsap.fromTo(
+        sectionRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+      );
+    }
   }, []);
 
   const toggleFAQ = (index) => {
