@@ -391,10 +391,10 @@ const HeroSection = () => {
             ))}
 
             {/* Free Consultation Card */}
-            <div className="glass-card p-8 mt-8 bg-gradient-to-br from-blue-50 to-amber-50 border-blue-100">
-              <div className="flex justify-between items-center">
+                 <div className="glass-card p-8 mt-8 bg-gradient-to-br from-blue-50 to-amber-50 border-blue-100">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                 <div>
-                  <div className="font-semibold text-lg">
+                  <div className="font-semibold text-lg ">
                     Free 30-Min Strategy Call
                   </div>
                   <div className="text-gray-600 mt-1">
@@ -403,7 +403,7 @@ const HeroSection = () => {
                 </div>
                 <a 
                 href="tel:+919926820304"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center gap-2 font-medium transition-all">
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium transition-all w-full md:w-auto">
                   Book Now <FiArrowRight />
                 </a>
               </div>
