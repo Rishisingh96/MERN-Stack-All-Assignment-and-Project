@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import PlatformCard from "../component/ui/PlateformCard";
+import webix from "../assets/webix.png";
+import car from "../assets/car.png";
+import ecommerce from "../assets/ecommerce.png";
+import resort from "../assets/resort.png";
+import news from "../assets/news.png";
 
 import {
   FiGlobe,
@@ -19,7 +24,8 @@ const platforms = [
     title: "Webix Main Website",
     description:
       "Official digital presence showcasing our services, innovations, and brand identity.",
-    url: "https://webixinfotech.vercel.app/",
+    url: "https://webixinfotech.com/",
+    image: webix,
   },
   {
     icon: FiGrid,
@@ -27,6 +33,7 @@ const platforms = [
     description:
       "Advanced vehicle and client management platform with real-time tracking and automation.",
     url: "https://car.webixinfotech.in/",
+    image: car,
   },
   {
     icon: FiShoppingCart,
@@ -34,6 +41,7 @@ const platforms = [
     description:
       "Scalable online store solution with seamless checkout, analytics, and AI-powered features.",
     url: "https://ecommerce.webixinfotech.in/",
+    image: ecommerce,
   },
   {
     icon: FiHome,
@@ -41,6 +49,7 @@ const platforms = [
     description:
       "Smart booking platform with real-time availability, user dashboards, and payment integration.",
     url: "https://resort.webixinfotech.in/",
+    image: resort,
   },
  
   {
@@ -49,6 +58,7 @@ const platforms = [
     description:
       "Smart property platform for buying, selling, and exploring listings with a clean and user-friendly experience.",
     url: "https://realestate.webixinfotech.in/",
+    image: ecommerce,
   },
   {
     icon: FiFileText,
@@ -56,12 +66,25 @@ const platforms = [
     description:
       "Modern news platform with multilingual support and CMS-driven content management.",
     url: "https://mahabharatpath.com/",
+    image: news,
   },
 ];
 
 const Platforms = () => {
   const sectionRef = useRef(null);
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCardClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -113,7 +136,7 @@ const Platforms = () => {
         {/* Cards Responsive Grid Wrapper */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch auto-rows-fr">
           {platforms.slice(0, showAll ? platforms.length : 6).map((item, index) => (
-            <PlatformCard key={index} {...item} />
+            <PlatformCard key={index} {...item} onClick={() => handleCardClick(item)} />
           ))}
         </div>
 
@@ -128,6 +151,67 @@ const Platforms = () => {
           </div>
         )}
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b">
+              <h3 className="text-xl font-bold text-slate-900">{selectedProject.title}</h3>
+              <button
+                onClick={closeModal}
+                className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+              >
+                <svg
+                  className="w-6 h-6 text-slate-600"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-auto rounded-lg shadow-md mb-6"
+              />
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={selectedProject.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors font-medium text-center shadow-md"
+                >
+                  Go to Live Website
+                </a>
+                <button
+                  onClick={() => window.open(selectedProject.image, '_blank')}
+                  className="px-6 py-3 bg-slate-800 text-white rounded-full hover:bg-slate-900 transition-colors font-medium shadow-md"
+                >
+                  View Full Image
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

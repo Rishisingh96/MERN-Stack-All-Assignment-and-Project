@@ -171,13 +171,13 @@ const HeroSection = () => {
 
   useEffect(() => {
     injectStyles();
-    
+
     // Counter animation for stats
     const targetValues = STATS.map(stat => {
       const num = parseInt(stat.num.replace(/\D/g, ''));
       return num;
     });
-    
+
     targetValues.forEach((target, index) => {
       let current = 0;
       const increment = target / 50;
@@ -194,7 +194,7 @@ const HeroSection = () => {
         });
       }, 30);
     });
-    
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     if (badgeRef.current) {
@@ -264,17 +264,26 @@ const HeroSection = () => {
   }, []);
 
   const scrollToSection = (id) => {
-  document.getElementById(id)?.scrollIntoView({
-    behavior: "smooth",
-  });
-};
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const handleBookNow = () => {
+    // Check if mobile device (screen width <= 768px)
+    if (window.innerWidth <= 768) {
+      window.location.href = 'tel:+919926820304';
+    } else {
+      scrollToSection('contact');
+    }
+  };
 
   return (
     <section
       className="hero-root relative min-h-[100svh] overflow-hidden bg-[#faf6f0]"
       id="home"
     >
-      <AnimatedBg  />
+      <AnimatedBg />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -311,21 +320,22 @@ const HeroSection = () => {
 
             {/* Buttons */}
             <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4 w-full">
-              <a 
-              href="https://webixinfotech.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex justify-center items-center gap-3 w-full sm:w-auto bg-gray-900 hover:bg-black text-white font-semibold px-8 py-4 rounded-full transition-all duration-300">
+              <button
+                onClick={
+                  () =>scrollToSection('contact')
+                }
+                
+                className="group flex justify-center items-center gap-3 w-full sm:w-auto bg-gray-900 hover:bg-black text-white font-semibold px-8 py-4 rounded-full transition-all duration-300">
                 Start Your Project
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
 
-              <button 
-              onClick={
-                ()=>scrollToSection('project')
-              }
-                
-              className="flex justify-center items-center gap-3 w-full sm:w-auto border-2 border-gray-800 hover:bg-gray-900 hover:text-white transition-all duration-300 px-8 py-4 rounded-full font-semibold">
+              <button
+                onClick={
+                  () => scrollToSection('project')
+                }
+
+                className="flex justify-center items-center gap-3 w-full sm:w-auto border-2 border-gray-800 hover:bg-gray-900 hover:text-white transition-all duration-300 px-8 py-4 rounded-full font-semibold">
                 <FiPlay /> See Our Work
               </button>
             </div>
@@ -409,7 +419,7 @@ const HeroSection = () => {
             ))}
 
             {/* Free Consultation Card */}
-                 <div className="glass-card p-8 mt-8 bg-gradient-to-br from-blue-50 to-amber-50 border-blue-100">
+            <div className="glass-card p-8 mt-8 bg-gradient-to-br from-blue-50 to-amber-50 border-blue-100">
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                 <div>
                   <div className="font-semibold text-lg ">
@@ -419,11 +429,11 @@ const HeroSection = () => {
                     Let's discuss your project goals
                   </div>
                 </div>
-                <a 
-                href="tel:+919926820304"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium transition-all w-full md:w-auto">
+                <button
+                  onClick={handleBookNow}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium transition-all w-full md:w-auto">
                   Book Now <FiArrowRight />
-                </a>
+                </button>
               </div>
             </div>
           </div>

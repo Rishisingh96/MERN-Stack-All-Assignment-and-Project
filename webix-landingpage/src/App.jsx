@@ -6,6 +6,7 @@ import FooterSection from "./component/common/Footer";
 import Navbar from "./component/common/Navbar";
 import Privacy from "./sections/Privacy";
 import SEO from "./component/common/SEO";
+import FAQForm from "./sections/FAQForm";
 
 const PlateformSection = lazy(() => import("./sections/PlateformSection"));
 const ServicesSection = lazy(() => import("./sections/ServicesSection"));
@@ -266,6 +267,9 @@ function App() {
               </Suspense>
               <Suspense fallback={<div className="min-h-[400px]" />}>
                 <FAQSection />
+              </Suspense>
+              <Suspense fallback={<div className="min-h-[400px]" />}>
+                <FAQForm />
               </Suspense>
               <FooterSection />
             </>

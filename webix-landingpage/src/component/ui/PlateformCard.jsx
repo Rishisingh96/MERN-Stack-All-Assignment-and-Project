@@ -1,91 +1,81 @@
-import { Link } from "lucide-react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-const PlatformCard = ({ icon: Icon, title, description, url }) => {
-
+const PlatformCard = ({
+  title,
+  description,
+  image,
+  onClick,
+}) => {
   return (
-   <a
-  href={url}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
-    group
-    relative
-    overflow-hidden
-    rounded-2xl
-    border
-    border-indigo-100
-    bg-white/90
-    p-6
-    min-h-[240px]
-    h-full
-    flex
-    flex-col
-    transition-all
-    duration-300
-    cursor-pointer
-    hover:-translate-y-2
-    hover:border-indigo-400
-    shadow-md
-    hover:shadow-xl
-    hover:shadow-[0_0_25px_rgba(99,102,241,0.4)]
-  "
->
-      {/* Top Section */}
-      <div className="relative z-10 flex items-start justify-between mb-6"
-      >
+    <div
+      onClick={onClick}
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-3xl
+        bg-white
+        border
+        border-slate-200
+        shadow-md
+        hover:shadow-2xl
+        transition-all
+        duration-500
+        cursor-pointer
+        hover:-translate-y-2
+        h-full
+      "
+    >
+      {/* Project Image */}
+      <div className="relative h-[280px] overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-105
+          "
+        />
 
-        {/* Icon Container */}
+        {/* Dark Overlay */}
         <div
           className="
-            h-14
-            w-14
-            rounded-xl
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/50
+            via-black/10
+            to-transparent
+          "
+        />
+
+        {/* Arrow */}
+        <div
+          className="
+            absolute
+            top-5
+            right-5
+            h-12
+            w-12
+            rounded-full
+            bg-white/90
+            backdrop-blur-md
             flex
             items-center
             justify-center
-            bg-indigo-50
-            border
-            border-indigo-100
             transition-all
             duration-300
-            group-hover:bg-indigo-500
-            group-hover:border-indigo-500
-          "
-        >
-          <Icon
-            className="
-              text-2xl
-              text-indigo-500
-              transition-all
-              duration-300
-              group-hover:text-white
-            "
-          />
-        </div>
-
-
-
-        {/* Action Arrow */}
-        <div
-          className="
-            p-2 
-            rounded-full 
-            bg-slate-50
-            border 
-            border-slate-200
-            transition-all
-            duration-300
-            group-hover:bg-indigo-500
-            group-hover:border-indigo-500
+            group-hover:bg-blue-500
           "
         >
           <FiArrowUpRight
             className="
-              text-lg
-              text-slate-400
-              transition-all
-              duration-300
+              text-xl
+              text-slate-700
               group-hover:text-white
             "
           />
@@ -93,17 +83,16 @@ const PlatformCard = ({ icon: Icon, title, description, url }) => {
       </div>
 
       {/* Content Section */}
-      <div className="relative z-10 flex-1">
+      <div className="p-6">
         <h3
           className="
-            text-xl
+            text-2xl
             font-bold
             text-slate-900
             mb-3
-            min-h-[56px]
             transition-colors
             duration-300
-            group-hover:text-indigo-600
+            group-hover:text-blue-600
           "
         >
           {title}
@@ -111,19 +100,30 @@ const PlatformCard = ({ icon: Icon, title, description, url }) => {
 
         <p
           className="
-            text-sm
             text-slate-600
             leading-relaxed
-            transition-colors
-            duration-300
-            line-clamp-4
-            min-h-[96px]
+            text-sm
+            line-clamp-3
           "
         >
           {description}
         </p>
+
+        <div
+          className="
+            mt-5
+            inline-flex
+            items-center
+            gap-2
+            text-blue-600
+            font-semibold
+          "
+        >
+          View Project
+          <FiArrowUpRight />
+        </div>
       </div>
-    </a>
+    </div>
   );
 };
 

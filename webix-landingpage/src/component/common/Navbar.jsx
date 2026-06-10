@@ -13,6 +13,7 @@ const Navbar = () => {
     { name: "Ecosystem", href: "#ecosystem" },
     { name: "FAQSection", href: "#faq" },
     { name: "Contact", href: "#contact" },
+    
   ];
 
   const scrollToSection = (id) => {
@@ -23,6 +24,13 @@ const Navbar = () => {
     }
     window.location.hash = id;
     document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToContact = (id) => {
+    const elementId = id.replace("#", "");
+    document.getElementById(elementId)?.scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -67,12 +75,12 @@ const Navbar = () => {
               </button>
             ))}
 
-            <a
-              href="https://webixinfotech.com/contact"
+            <button
+              onClick={() => scrollToContact("#contact")}
               className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
               Get Started
-            </a>
+            </button>
           </div>
           {/* Mobile Menu Button */}
           <button
@@ -97,6 +105,8 @@ const Navbar = () => {
             )}
           </button>
         </div>
+
+
         {/* Mobile Menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${
@@ -150,8 +160,11 @@ const Navbar = () => {
             ))}
 
             <div className="px-4 pt-3">
-              <a
-                href="https://webixinfotech.com/contact"
+              <button
+                onClick={() => {
+                  scrollToSection("#contact");
+                }}
+                
                 className="
           flex
           items-center
@@ -173,7 +186,7 @@ const Navbar = () => {
         "
               >
                 Get Started →
-              </a>
+              </button>
             </div>
           </div>
         </div>

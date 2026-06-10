@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { Helmet } from "react-helmet-async";
 import AnimatedBg from '../component/common/Animatedbg1';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -177,9 +176,12 @@ ${openIndex === index
           <p className="text-gray-600 mb-4">
             Still have questions?
           </p>
-          <button className="bg-gray-900 hover:bg-black text-white font-semibold px-8 py-4 rounded-full transition-all duration-300">
+          <a
+            href="#contact"
+            className="inline-block bg-gray-900 hover:bg-black text-white font-semibold px-8 py-4 rounded-full transition-all duration-300"
+          >
             Contact Us
-          </button>
+          </a>
         </div>
       </div>
     </section>
