@@ -110,8 +110,6 @@ const injectStyles = () => {
   document.head.appendChild(style);
 };
 
-
-
 /* ─── Data ─── */
 const FEATURES = [
   {
