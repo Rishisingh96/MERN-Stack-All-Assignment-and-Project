@@ -53,12 +53,13 @@ const Navbar = () => {
         {" "}
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}{" "}
-          <Link to="/" className="flex items-center group md:-ml-38 ">
+          {/* <Link to="/" className="flex items-center group md:-ml-38 "> */}
+          <Link to="/" className="flex items-center group flex-shrink-0 md:-ml-38">
             <img
               src={logo}
               alt="Webix Infotech Logo - Software Development Company"
               loading="eager"
-              className="h-10 sm:h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              className="h-10 sm:h-12 lg:h-14 w-auto max-w-[180px] sm:max-w-[200px] object-contain transition-all duration-300 group-hover:scale-105"
             />
           </Link>
           {/* Desktop Navigation */}
