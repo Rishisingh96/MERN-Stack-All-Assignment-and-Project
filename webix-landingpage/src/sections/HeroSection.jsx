@@ -152,9 +152,9 @@ const TECH = [
 ];
 
 const STATS = [
-  { num: "60+", label: "Projects Delivered" },
+  { num: "6+", label: "Projects Delivered" },
   { num: "98%", label: "Client Satisfaction" },
-  { num: "10+", label: "Expert Engineers" },
+  { num: "2+", label: "Expert Engineers" },
 ];
 
 /* ─── Main Component ─── */
