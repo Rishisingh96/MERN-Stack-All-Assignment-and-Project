@@ -52,7 +52,6 @@ const Navbar = () => {
         {" "}
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}{" "}
-          {/* <Link to="/" className="flex items-center group md:-ml-38 "> */}
           <Link
             to="/"
             className="flex items-center group flex-shrink-0 md:-ml-38"
@@ -82,9 +81,29 @@ const Navbar = () => {
               href="https://webixinfotech.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base hover:shadow-[0_0_25px_rgba(249,115,22,0.6)] hover:-translate-y-1 transition-all duration-300"
+              className="
+    relative
+    inline-flex
+    items-center
+    justify-center
+    px-6
+    py-3
+    rounded-full
+    font-bold
+    text-white
+    bg-gradient-to-r
+    from-cyan-500
+    via-blue-600
+    to-indigo-700
+    animate-pulse
+    shadow-[0_0_30px_rgba(59,130,246,0.8)]
+    hover:shadow-[0_0_60px_rgba(59,130,246,1)]
+    hover:scale-105
+    transition-all
+    duration-300
+  "
             >
-              Get Started
+              🚀 Visit Main Website
             </a>
           </div>
           {/* Mobile Menu Button */}
@@ -164,38 +183,34 @@ const Navbar = () => {
 
             <div className="px-4 pt-3">
               <a
-                // onClick={() => {
-                //   scrollToSection("#contact");
-                // }}
-
                 href="https://webixinfotech.com/"
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={(e) => {
-    e.stopPropagation();
-    console.log("Link Clicked");
-  }}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-          flex
-          items-center
-          justify-center
-          w-full
-          bg-gradient-to-r
-          from-blue-500
-          via-blue-600
-          to-indigo-600
-          text-white
-          py-3.5
-          rounded-2xl
-          font-semibold
-          text-sm
-          shadow-[0_10px_30px_rgba(59,130,246,0.4)]
-          hover:scale-[1.02]
-          transition-all
-          duration-300
+      relative
+      flex
+      items-center
+      justify-center
+      w-full
+      bg-gradient-to-r
+      from-cyan-500
+      via-blue-600
+      to-indigo-700
+      text-white
+      py-4
+      rounded-2xl
+      font-bold
+      text-base
+      tracking-wide
+      shadow-[0_0_35px_rgba(59,130,246,0.9)]
+      hover:shadow-[0_0_70px_rgba(59,130,246,1)]
+      hover:scale-105
+      transition-all
+      duration-300
+      animate-pulse
         "
               >
-                Get Started →
+                🚀 Visit Main Website
               </a>
             </div>
           </div>
