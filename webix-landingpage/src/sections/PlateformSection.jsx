@@ -5,6 +5,7 @@ import car from "../assets/car.png";
 import ecommerce from "../assets/ecommerce.png";
 import resort from "../assets/resort.png";
 import news from "../assets/news.png";
+import skillbridge from "../assets/skillbridge.png";
 
 import {
   FiGlobe,
@@ -19,14 +20,6 @@ import gsap from "gsap";
 import AnimatedBg from "../component/common/Animatedbg1";
 
 const platforms = [
-  {
-    icon: FiGlobe,
-    title: "Webix Main Website",
-    description:
-      "Official digital presence showcasing our services, innovations, and brand identity.",
-    url: "https://webixinfotech.com/",
-    image: webix,
-  },
   {
     icon: FiGrid,
     title: "CAR Management System",
@@ -51,7 +44,6 @@ const platforms = [
     url: "https://resort.webixinfotech.in/",
     image: resort,
   },
- 
   {
     icon: FiMapPin,
     title: "Real Estate Platform",
@@ -68,6 +60,14 @@ const platforms = [
     url: "https://mahabharatpath.com/",
     image: news,
   },
+  {
+    icon: FiGlobe,
+    title: "SkillBridge Learning Platform",
+    description:
+      "Online learning platform offering courses and resources for skill development.",
+    url: "https://skillbridgelearnbyrishi.vercel.app/",
+    image: skillbridge,
+  }
 ];
 
 const Platforms = () => {
